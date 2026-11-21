@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>S.E.T — Металлообработка, плазменная резка и лофт-мебель в Костроме</title>
+  <meta name="description" content="Собственный цех полного цикла в Костроме: ЧПУ плазменная резка 3000×1500 мм, изготовление лофт-мебели и металлоконструкций, порошковая покраска 200+ цветов RAL." />
+  <style>
+    :root {
+      --bg-primary: #0b0c0e;
+      --bg-card: #13161a;
+      --bg-card-hover: #181c22;
+      --border: #242932;
+      --text-main: #f3f4f6;
+      --text-muted: #9ca3af;
+      --accent: #f97316;
+      --accent-hover: #ea580c;
+      --max-btn: #2563eb;
+      --max-btn-hover: #1d4ed8;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Inter, Arial, sans-serif;
+      background-color: var(--bg-primary);
+      color: var(--text-main);
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Header */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(11, 12, 14, 0.9);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .header-inner {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      padding: 14px 0;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: var(--text-main);
+    }
+
+    .logo-badge {
+      width: 44px;
+      height: 44px;
+      border-radius: 10px;
+      background: #16191f;
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 14px;
+      letter-spacing: 0.04em;
+      color: var(--accent);
+      flex-shrink: 0;
+    }
+
+    .brand-text strong {
+      display: block;
+      font-size: 19px;
+      font-weight: 800;
+      letter-spacing: 0.03em;
+      line-height: 1.15;
+    }
+
+    .brand-text span {
+      display: block;
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    .header-actions {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 10px 16px;
+      border-radius: 10px;
+      font-size: 14px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: 0.2s ease;
+      cursor: pointer;
+      border: 1px solid transparent;
+    }
+
+    .btn-phone {
+      background: #16191f;
+      border-color: var(--border);
+      color: var(--text-main);
+    }
+
+    .btn-phone:hover {
+      border-color: #3a4150;
+      background: #1d2129;
+    }
+
+    .btn-max {
+      background: rgba(37, 99, 235, 0.16);
+      border-color: rgba(59, 130, 246, 0.45);
+      color: #60a5fa;
+    }
+
+    .btn-max:hover {
+      background: rgba(37, 99, 235, 0.28);
+      color: #93c5fd;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #fff;
+      padding: 13px 22px;
+      font-size: 15px;
+    }
+
+    .btn-primary:hover {
+      background: var(--accent-hover);
+    }
+
+    .btn-secondary {
+      background: var(--bg-card);
+      border-color: var(--border);
+      color: var(--text-main);
+      padding: 13px 22px;
+      font-size: 15px;
+    }
+
+    .btn-secondary:hover {
+      border-color: #3a4150;
+      background: var(--bg-card-hover);
+    }
+
+    /* Hero */
+    .hero {
+      padding: 52px 0 44px;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 14px;
+      border-radius: 999px;
+      background: rgba(249, 115, 22
+
+
+, 0.1);
+      border: 1px solid rgba(249, 115, 22, 0.28);
+      color: #fb923c;
+      font-size: 13px;
+      font-weight: 500;
+      margin-bottom: 20px;
+    }
+
+    .pill-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #22c55e;
+      box-shadow: 0 0 8px #22c55e;
+    }
+
+    .hero h1 {
+      font-size: clamp(32px, 5vw, 52px);
+      font-weight: 800;
+      line-height: 1.12;
+      letter-spacing: -0.02em;
+      margin-bottom: 18px;
+      max-width: 820px;
+    }
+
+    .hero h1 span {
+      color: var(--accent);
+    }
+
+    .hero-desc {
+      font-size: 16px;
+      color: var(--text-muted);
+      max-width: 720px;
+      margin-bottom: 28px;
+    }
+
+    .hero-cta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 36px;
+    }
+
+    /* Stats Grid */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 14px;
+    }
+
+    .stat-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 20px;
+    }
+
+    .stat-value {
+      font-size: 26px;
+      font-weight: 800;
+      color: var(--text-main);
+      margin-bottom: 4px;
+    }
+
+    .stat-label {
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    /* Sections */
+    section {
+      padding: 48px 0;
+      border-top: 1px solid var(--border);
+    }
+
+    .section-title {
+      font-size: 26px;
+      font-weight: 800;
+      margin-bottom: 8px;
+    }
+
+    .section-sub {
+      color: var(--text-muted);
+      font-size: 15px;
+      margin-bottom: 28px;
+      max-width: 680px;
+    }
+
+    /* Services */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+      gap: 18px;
+    }
+
+    .service-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 24px;
+      transition: border-color 0.2s ease, transform 0.2s ease;
+    }
+
+    .service-card:hover {
+      border-color: rgba(249, 115, 22, 0.5);
+      transform: translateY(-2px);
+    }
+
+    .service-tag {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--accent);
+      background: rgba(249, 115, 22, 0.12);
+      padding: 4px 10px;
+      border-radius: 6px;
+      margin-bottom: 12px;
+    }
+
+    .service-card h3 {
+      font-size: 19px;
+      margin-bottom: 10px;
+    }
+
+    .service-card p {
+      font-size: 14px;
+      color: var(--text-muted);
+      margin-bottom: 14px;
+    }
+
+    .service-list {
+      list-style: none;
+      font-size: 14px;
+      color: #d1d5db;
+    }
+
+    .service-list li {
+      position: relative;
+      padding-left: 16px;
+      margin-bottom: 6px;
+    }
+
+    .service-list li::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-weight: bold;
+    }
+
+    /* Process */
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+    }
+
+    .step-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 20px;
+    }
+
+    .step-num {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--accent);
+      margin-bottom: 8px;
+    }
+
+    .step-card h4 {
+      font-size: 16px;
+      margin-bottom: 6px;
+    }
+
+    .step-card p {
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    /* Contacts & Form */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+    }
+
+    .contact-box {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 24px;
+    }
+
+    .contact-item {
+      margin-bottom: 18px;
+    }
+
+    .contact-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .contact-label {
+      font-size: 12px;
+      text-transform: uppercase;
+      lett
+
+
+er-spacing: 0.05em;
+      color: var(--text-muted);
+      margin-bottom: 4px;
+    }
+
+    .contact-val {
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--text-main);
+      text-decoration: none;
+    }
+
+    .contact-val:hover {
+      color: var(--accent);
+    }
+
+    .form-group {
+      margin-bottom: 14px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-bottom: 6px;
+    }
+
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      width: 100%;
+      padding: 11px 14px;
+      border-radius: 10px;
+      background: #0d0f12;
+      border: 1px solid var(--border);
+      color: var(--text-main);
+      font-size: 14px;
+      font-family: inherit;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus,
+    .form-group select:focus {
+      outline: none;
+      border-color: var(--accent);
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 26px 0;
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    .footer-inner {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+    }
+
+    max-width: 600px {
+      .header-actions {
+        width: 100%;
+      }
+      .header-actions .btn {
+        flex: 1;
+        padding: 10px 12px;
+        font-size: 13px;
+      }
+      .hero {
+        padding: 36px 0 32px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Шапка сайта -->
+  <header>
+    <div class="container header-inner">
+      <a href="#" class="brand">
+        <div class="logo-badge">S.E.T</div>
+        <div class="brand-text">
+          <strong>S.E.T</strong>
+          <span>Металлообработка и лофт-мебель • Кострома</span>
+        </div>
+      </a>
+
+      <div class="header-actions">
+        <a href="tel:+79109262421" class="btn btn-phone">+7 (910) 926-24-21</a>
+        <a href="https://max.ru/" target="_blank" rel="noopener" class="btn btn-max">Написать в MAX</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Главный экран -->
+  <main>
+    <section class="hero" style="border-top: none;">
+      <div class="container">
+        <div class="pill">
+          <span class="pill-dot"></span>
+          Собственный цех в Костроме • Работаем без посредников
+        </div>
+
+        <h1>
+          Лофт-мебель, <span>плазменная резка</span> и порошковая покраска
+        </h1>
+
+        <p class="hero-desc">
+          Полный цикл производства металлоизделий в одном цеху: раскрой листового металла на станке ЧПУ по вашим чертежам DXF, точная сварка с зачисткой швов и стойкое полимерное порошковое покрытие.
+        </p>
+
+        <div class="hero-cta">
+          <a href="#calc" class="btn btn-primary">Рассчитать стоимость заказа</a>
+          <a href="#services" class="btn btn-secondary">Наши услуги и оборудование</a>
+        </div>
+
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-value">3000×1500</div>
+            <div class="stat-label">Рабочее поле станка ЧПУ плазменной резки (мм)</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-value">200+ цветов</div>
+            <div class="stat-label">Каталог RAL + фактуры: муар, шагрень, глянец, мат</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-value">От 1 шт.</div>
+            <div class="stat-label">Работаем с частными заказами, дизайнерами и бизнесом</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Услуги -->
+    <section id="services">
+      <div class="container">
+        <h2 class="section-title">Направления производства</h2>
+        <p class="section-sub">Выполняем как отдельные операции (резка или покраска вашего металла), так и готовые изделия под ключ.</p>
+
+        <div class="services-grid">
+          <div class="service-card">
+            <span class="service-tag">ЧПУ Раскрой</span>
+            <h3>Плазменная
+MAX — быстрое и легкое приложение для общения и решения повседневных задач
+MAX — быстрое и легкое приложение для общения и решения повседневных задач
+max.ru
+
+
+резка металла</h3>
+            <p>Высокоточный раскрой листового проката по вашим файлам DXF или эскизам с подготовкой чертежа.</p>
+            <ul class="service-list">
+              <li>Рабочий стол 3000 × 1500 мм</li>
+              <li>Закладные детали, фланцы, косынки, кронштейны</li>
+              <li>Декоративные панели для ворот, заборов и фасадов</li>
+              <li>Оптимальный раскрой листа для экономии материала</li>
+            </ul>
+          </div>
+
+          <div class="service-card">
+            <span class="service-tag">На заказ</span>
+            <h3>Лофт-мебель и металлокаркасы</h3>
+            <p>Изготавливаем прочную мебель и конструкции из профильной трубы и листа по индивидуальным размерам.</p>
+            <ul class="service-list">
+              <li>Стеллажи, столы, консоли, подстолья и барные стойки</li>
+              <li>Торговое оборудование для магазинов и кофеен</li>
+              <li>Мангальные зоны, костровые чаши и садовый декор</li>
+              <li>Аккуратная сварка и шлифовка стыков</li>
+            </ul>
+          </div>
+
+          <div class="service-card">
+            <span class="service-tag">Камера полимеризации</span>
+            <h3>Порошковая покраска</h3>
+            <p>Защита металла от коррозии и царапин с равномерным нанесением полимерного покрытия.</p>
+            <ul class="service-list">
+              <li>Более 200 оттенков по каталогу RAL</li>
+              <li>Покрытия: черный муар, графит, шагрень, металлик</li>
+              <li>Покраска дисков, профилей, ворот, деталей и корпусов</li>
+              <li>Соблюдение температурного режима запекания</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Этапы работы -->
+    <section>
+      <div class="container">
+        <h2 class="section-title">Как мы работаем</h2>
+        <p class="section-sub">Прозрачный процесс от вашего эскиза на листке до отгрузки готового изделия.</p>
+
+        <div class="steps-grid">
+          <div class="step-card">
+            <div class="step-num">01 / Заявка и замеры</div>
+            <h4>Присылаете эскиз или DXF</h4>
+            <p>Достаточно фото рисунка от руки с размерами или готового файла чертежа.</p>
+          </div>
+          <div class="step-card">
+            <div class="step-num">02 / Расчет сметы</div>
+            <h4>Фиксируем цену и сроки</h4>
+            <p>Подбираем толщину металла, делаем раскладку на лист и согласовываем стоимость.</p>
+          </div>
+          <div class="step-card">
+            <div class="step-num">03 / Производство</div>
+            <h4>Резка, сварка и покраска</h4>
+            <p>Изготавливаем детали на плазме, свариваем каркас, зачищаем и красим в камере.</p>
+          </div>
+          <div class="step-card">
+            <div class="step-num">04 / Выдача заказа</div>
+            <h4>Самовывоз или доставка</h4>
+            <p>Проверяете качество покрытия и геометрию при получении в цеху в Костроме.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Контакты и расчет -->
+    <section id="calc">
+      <div class="container">
+        <h2 class="section-title">Контакты и расчет заказа</h2>
+        <p class="section-sub">Свяжитесь с нами удобным способом или отправьте параметры задачи — ответим с расчетом в ближайшее время.</p>
+
+        <div class="contact-grid">
+          <div class="contact-box">
+            <div class="contact-item">
+              <div class="contact-label">Телефон для связи</div>
+              <a href="tel:+79109262421" class="contact-val">+7 (910) 926-24-21</a>
+            </div>
+
+            <div class="contact-item">
+              <div class="contact-label">Мессенджер</div>
+              <div style="margin-top: 6px;">
+                <a href="https://max.ru/" target="_blank" rel="noopener" class="btn btn-max">Написать в MAX</a>
+              </div>
+            </div>
+
+            <div class="contact-item">
+              <div class="contact-label">Адрес цеха</div>
+MAX — быстрое и легкое приложение для общения и решения повседневных задач
+MAX — быстрое и легкое приложение для общения и решения повседневных задач
+max.ru
+
+
